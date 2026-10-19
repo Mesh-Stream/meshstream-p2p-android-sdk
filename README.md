@@ -1,5 +1,13 @@
 # MeshStream Android SDK
 
+## MeshStream SDKs
+
+- [Online Demo](https://demo.meshstream.net/) for a live Web playback and P2P delivery view.
+- [Web Demo](https://github.com/Mesh-Stream/meshstream-p2p-web-sdk) using the published npm SDK.
+- [Android SDK](https://github.com/Mesh-Stream/meshstream-p2p-android-sdk) for Media3 / ExoPlayer apps.
+- [Apple SDK](https://github.com/Mesh-Stream/meshstream-p2p-ios-sdk) for iOS and macOS apps.
+- [Windows SDK](https://github.com/Mesh-Stream/meshstream-p2p-Windows-sdk) for C/C++ desktop apps.
+
 MeshStream Android SDK provides a CDN-compatible playback URL for HLS and DASH
 content. It adds P2P delivery opportunistically while preserving normal media
 playback continuity. Applications continue to use their existing player; no
