@@ -1,5 +1,7 @@
 # MeshStream Android SDK
 
+[简体中文](README.zh-CN.md)
+
 ## MeshStream SDKs
 
 - [Online Demo](https://demo.meshstream.net/) for a live Web playback and P2P delivery view.
