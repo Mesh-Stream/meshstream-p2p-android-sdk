@@ -2,6 +2,8 @@
 
 [English](README.md)
 
+[发布维护契约](RELEASE_CONTRACT.md)
+
 MeshStream Android SDK 为 HLS 和 DASH 提供与 CDN 兼容的播放地址，并在可用时启用
 P2P 分发。应用继续使用自己的播放器；SDK 只负责播放会话、服务配置和加速处理。
 
