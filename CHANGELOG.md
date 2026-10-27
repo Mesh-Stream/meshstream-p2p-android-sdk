@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.5 - 2026-10-27
+
+- Publishes the ARM64 release built and verified from P2PCDN native SDK 1.0.5.
+- Updates the Media3 example and Maven coordinates to 1.0.5.
+- Records the verified AAR SHA-256 and public Maven verification endpoints.
+- Confirms both `sdk.meshstream.net/maven` and the R2 `r2.dev` mirror serve the
+  same 1.0.5 metadata and artifact.
+
 ## 1.0.4 - 2026-10-27
 
 - Publishes the ARM64 release built and verified from P2PCDN native SDK 1.0.4.
