@@ -15,7 +15,7 @@ P2P 分发。应用继续使用自己的播放器；SDK 只负责播放会话、
 
 ## 当前发布
 
-当前版本为 `1.0.2`，通过 MeshStream Maven 仓库分发。公开包包含 `arm64-v8a`
+当前版本为 `1.0.4`，通过 MeshStream Maven 仓库分发。公开包包含 `arm64-v8a`
 原生库，面向 Android 5.0（API 21）及以上 ARM64 真机。32 位或模拟器 ABI 请联系
 技术支持获取适配构建包。
 
@@ -25,14 +25,14 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven {
-            url = uri("https://pub-61830e1369904d19af505ff74fd55ba4.r2.dev/maven")
+            url = uri("https://sdk.meshstream.net/maven")
             content { includeGroup("io.meshstream") }
         }
     }
 }
 
 dependencies {
-    implementation("io.meshstream:meshstream-android-sdk:1.0.2")
+    implementation("io.meshstream:meshstream-android-sdk:1.0.4")
 }
 ```
 

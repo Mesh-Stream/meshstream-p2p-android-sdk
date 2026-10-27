@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.4 - 2026-10-27
+
+- Publishes the ARM64 release built and verified from P2PCDN native SDK 1.0.4.
+- Updates the Media3 example and Maven coordinates to 1.0.4.
+- Records the verified AAR SHA-256 and formal Maven repository URL.
+
 All notable changes to the public MeshStream Android SDK distribution are
 documented in this file.
 
