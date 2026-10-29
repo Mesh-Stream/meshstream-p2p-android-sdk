@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.6 - 2026-10-29
+
+- Publishes the ARM64 release built and verified from P2PCDN native SDK 1.0.6.
+- Includes the preload swarm prewarm and idle cleanup changes.
+- Records the verified AAR SHA-256 and Android 16 KB ELF alignment checks.
+
+
 ## 1.0.5 - 2026-10-27
 
 - Publishes the ARM64 release built and verified from P2PCDN native SDK 1.0.5.
