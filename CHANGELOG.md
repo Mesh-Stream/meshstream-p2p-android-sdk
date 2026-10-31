@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.7 - 2026-10-31
+
+- Updates the ARM64 release to native SDK 1.0.7.
+- Ensures proxy connections are closed during SDK shutdown, including existing keep-alive connections.
+- Records the verified AAR checksum and 16 KB ELF alignment result.
+
+Version and artifact verification details: `releases/1.0.7.json`.
+
 ## 1.0.6 - 2026-10-29
 
 - Publishes the ARM64 release built and verified from P2PCDN native SDK 1.0.6.

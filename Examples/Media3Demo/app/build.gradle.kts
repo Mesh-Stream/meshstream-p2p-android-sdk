@@ -14,7 +14,7 @@ android {
         minSdk = 24
         targetSdk = 35
         versionCode = 1
-        versionName = "1.0.6"
+        versionName = "1.0.7"
     }
 
     compileOptions {
@@ -30,7 +30,7 @@ kotlin {
 }
 
 dependencies {
-    implementation("io.meshstream:meshstream-android-sdk:1.0.6")
+    implementation("io.meshstream:meshstream-android-sdk:1.0.7")
     implementation("androidx.media3:media3-exoplayer:1.5.1")
     implementation("androidx.media3:media3-exoplayer-hls:1.5.1")
     implementation("androidx.media3:media3-ui:1.5.1")
