@@ -37,8 +37,9 @@
     "elfLoadAlignment": "passed-16kb-arm64",
     "demoApk": "built",
     "publicMaven": "passed-exact-aar-pom-module-sha256-metadata",
-    "publicDemoBuild": "pending",
+    "publicDemoBuild": "passed-public-maven-1.0.8",
     "arm32Api17Device": "pending",
-    "arm64Device": "pending"
+    "arm64Device": "pending",
+    "publicDemoApkSha256": "869ec49e6c589120f5b74c264817c3dc96c05e60a554f4fc11700c9e521121f0"
   }
 }
