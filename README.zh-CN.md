@@ -15,9 +15,10 @@ P2P 分发。应用继续使用自己的播放器；SDK 只负责播放会话、
 
 ## 当前发布
 
-当前版本为 `1.0.7`，通过 MeshStream Maven（R2 后端）分发。公开包包含 `arm64-v8a`
-原生库，面向 Android 5.0（API 21）及以上 ARM64 真机。32 位或模拟器 ABI 请联系
-技术支持获取适配构建包。
+当前版本为 `1.0.8`，通过 MeshStream Maven（R2 后端）分发。同一个 universal AAR 包含
+`armeabi-v7a`（构建目标 API 17）和 `arm64-v8a`（构建目标 API 21）原生库。
+API 17 真机验收待完成；Media3 Demo 需要 API 24，旧系统需要匹配的播放器。
+x86/x86_64 模拟器 ABI 请联系技术支持。
 
 ```kotlin
 dependencyResolutionManagement {
@@ -32,7 +33,7 @@ dependencyResolutionManagement {
 }
 
 dependencies {
-    implementation("io.meshstream:meshstream-android-sdk:1.0.7")
+    implementation("io.meshstream:meshstream-android-sdk:1.0.8")
 }
 ```
 
@@ -56,7 +57,7 @@ player.play()
 
 [`Examples/Media3Demo`](Examples/Media3Demo) 是可独立打开的 Android Studio 工程，
 通过 Maven 解析 SDK，不包含本地 AAR。SDK 版本元数据和校验和位于
-[`releases/`](releases)。本次公网验证同时检查了正式地址
-`https://sdk.meshstream.net/maven` 和 R2 `r2.dev` 测试镜像；两者均返回
-1.0.7 的同一份 metadata、AAR 和 SHA-256。
+[`releases/`](releases)。正式 Maven 地址为
+`https://sdk.meshstream.net/maven`；以精确版本及 SHA-256 校验发行包，历史对象不覆盖。
+当前 Android 设备验收待完成。
 接入、ABI、授权或分发问题请联系 support@meshstream.net。

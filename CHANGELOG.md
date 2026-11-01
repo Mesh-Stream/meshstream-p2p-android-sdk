@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.8 - 2026-11-01
+
+- Publishes a universal AAR containing ARM32 (`armeabi-v7a`, API 17 target) and ARM64 (`arm64-v8a`, API 21 target).
+- Retains 16 KB ELF LOAD alignment for both ARM64 libraries.
+- Builds ARM32 using NDK 23.2.8568313 and ARM64 using NDK 27.2.12479018.
+- Updates the Media3 example to Maven 1.0.8. The demo still requires API 24.
+- Verifies 36 Debug tests, 36 minified Release tests, and 247 native tests.
+- API 17 and ARM64 device playback/P2P acceptance remain pending (no connected device).
+
 ## 1.0.7 - 2026-10-31
 
 - Updates the ARM64 release to native SDK 1.0.7.

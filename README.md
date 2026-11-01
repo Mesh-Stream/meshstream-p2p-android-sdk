@@ -17,18 +17,18 @@ tracker, token, or service endpoint is supplied by application code.
 
 ## Release
 
-The current release is **1.0.7**.
+The current release is **1.0.8**.
 
 | Item | Value |
 | --- | --- |
-| Maven coordinate | `io.meshstream:meshstream-android-sdk:1.0.7` |
+| Maven coordinate | `io.meshstream:meshstream-android-sdk:1.0.8` |
 | Delivery | MeshStream Maven repository backed by R2 |
-| Native ABI in this release | `arm64-v8a` |
-| Minimum Android version | Android 5.0 (API 21) on the published ARM64 artifact |
+| Native ABI in this release | `armeabi-v7a` and `arm64-v8a` (universal AAR) |
+| Native build targets | ARM32: Android 4.2 (API 17)+; ARM64: Android 5.0 (API 21)+ |
 
-The public artifact is intended for ARM64 physical devices. Customers needing
-32-bit or Android emulator ABI packages should contact support before release
-integration.
+One AAR serves ARM32 and ARM64 devices. API 17 device acceptance is pending.
+The Media3 demo requires API 24; a player compatible with older Android versions
+is required on API 17–23. x86/x86_64 emulator packages are available through support.
 
 ## Add the dependency
 
@@ -51,7 +51,7 @@ Then add the SDK and the required player modules:
 
 ```kotlin
 dependencies {
-    implementation("io.meshstream:meshstream-android-sdk:1.0.7")
+    implementation("io.meshstream:meshstream-android-sdk:1.0.8")
     implementation("androidx.media3:media3-exoplayer:1.5.1")
     implementation("androidx.media3:media3-exoplayer-hls:1.5.1")
 }
@@ -135,15 +135,15 @@ repository and contains no local SDK binary.
 ## Release verification
 
 The metadata for each public release is stored under [`releases/`](releases).
-For 1.0.7, the published artifact SHA-256 is:
+For 1.0.8, the published artifact SHA-256 is:
 
 ```text
-97969d52363368e02d90cbe12427a3d78fe7c039987a4f5c0c03689955b4a3e9
+cccbb797042a2351ece7bf1585f58ca222198eb5c315dcc9f23fcba3f07088df
 ```
 
 The public Maven endpoint for this release is `https://sdk.meshstream.net/maven`.
-The R2 `r2.dev` endpoint was also checked and serves the same 1.0.7 metadata,
-AAR, and SHA-256 as a test mirror.
+Release verification uses the supported public domain and exact Maven version.
+Historical Maven artifacts remain unchanged. Android device acceptance is pending.
 
 ## Support
 
