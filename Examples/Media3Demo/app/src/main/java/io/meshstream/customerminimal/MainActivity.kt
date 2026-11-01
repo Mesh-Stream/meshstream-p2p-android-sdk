@@ -58,9 +58,16 @@ class MainActivity : Activity() {
         setContentView(buildContent())
     }
 
+    @Suppress("DEPRECATION", "OVERRIDE_DEPRECATION")
+    override fun onBackPressed() {
+        // Finish playback when leaving the demo, including launcher-root activities.
+        finish()
+    }
+
     private fun buildContent(): LinearLayout {
         return LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
+            fitsSystemWindows = true
             setPadding(24, 24, 24, 24)
             setBackgroundColor(Color.WHITE)
 

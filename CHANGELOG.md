@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.9 - 2026-11-01
+
+- Adds x86 (API 17+) and x86_64 (API 21+) to the universal AAR, alongside armeabi-v7a and arm64-v8a.
+- Preserves 16 KB ELF LOAD alignment for all packaged 64-bit native libraries.
+- Keeps the existing public API and ARM minimum Android versions.
+- Updates the Media3 example and exact Maven dependency to 1.0.9.
+- Finishes the demo Activity on Back so its player and SDK session are released on Android 12+.
+- Allows only loopback HTTP traffic in the Media3 example so Android network policy permits the local playback proxy.
+
 ## 1.0.8 - 2026-11-01
 
 - Publishes a universal AAR containing ARM32 (`armeabi-v7a`, API 17 target) and ARM64 (`arm64-v8a`, API 21 target).
@@ -7,7 +16,6 @@
 - Builds ARM32 using NDK 23.2.8568313 and ARM64 using NDK 27.2.12479018.
 - Updates the Media3 example to Maven 1.0.8. The demo still requires API 24.
 - Verifies 36 Debug tests, 36 minified Release tests, and 247 native tests.
-- API 17 and ARM64 device playback/P2P acceptance remain pending (no connected device).
 
 ## 1.0.7 - 2026-10-31
 

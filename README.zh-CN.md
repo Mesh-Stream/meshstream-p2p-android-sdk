@@ -15,10 +15,9 @@ P2P 分发。应用继续使用自己的播放器；SDK 只负责播放会话、
 
 ## 当前发布
 
-当前版本为 `1.0.8`，通过 MeshStream Maven（R2 后端）分发。同一个 universal AAR 包含
-`armeabi-v7a`（构建目标 API 17）和 `arm64-v8a`（构建目标 API 21）原生库。
-API 17 真机验收待完成；Media3 Demo 需要 API 24，旧系统需要匹配的播放器。
-x86/x86_64 模拟器 ABI 请联系技术支持。
+当前版本为 `1.0.9`，通过 MeshStream Maven分发。同一个 universal AAR 包含
+`armeabi-v7a` / `x86`（API 17）和 `arm64-v8a` / `x86_64`（API 21）原生库，覆盖 ARM 真机及 ARM64、x86、x86_64 模拟器。
+Media3 Demo 需要 API 24，旧系统需要匹配的播放器。
 
 ```kotlin
 dependencyResolutionManagement {
@@ -33,9 +32,26 @@ dependencyResolutionManagement {
 }
 
 dependencies {
-    implementation("io.meshstream:meshstream-android-sdk:1.0.8")
+    implementation("io.meshstream:meshstream-android-sdk:1.0.9")
 }
 ```
+
+## 本地播放网络策略
+
+SDK 返回设备本地 `127.0.0.1` 的 HTTP 代理地址；即使媒体源为 HTTPS，也需要允许播放器访问本地代理。API 24+ 示例已提供 `res/xml/network_security_config.xml`：
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false" />
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">127.0.0.1</domain>
+        <domain includeSubdomains="false">localhost</domain>
+    </domain-config>
+</network-security-config>
+```
+
+在 `<application>` 引用 `android:networkSecurityConfig="@xml/network_security_config"`；已有网络策略请合并本地地址规则。Android 6.0（API 23）不支持按域名放行，需根据应用策略设置 `android:usesCleartextTraffic="true"`；API 24+ 以网络安全配置为准。公网 HTTP 媒体源需要另行配置。
 
 ## 快速接入
 
@@ -59,5 +75,4 @@ player.play()
 通过 Maven 解析 SDK，不包含本地 AAR。SDK 版本元数据和校验和位于
 [`releases/`](releases)。正式 Maven 地址为
 `https://sdk.meshstream.net/maven`；以精确版本及 SHA-256 校验发行包，历史对象不覆盖。
-当前 Android 设备验收待完成。
 接入、ABI、授权或分发问题请联系 support@meshstream.net。
