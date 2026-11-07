@@ -15,7 +15,7 @@ P2P 分发。应用继续使用自己的播放器；SDK 只负责播放会话、
 
 ## 当前发布
 
-当前版本为 `1.0.9`，通过 MeshStream Maven分发。同一个 universal AAR 包含
+当前版本为 `1.0.10`，通过 MeshStream Maven分发。同一个 universal AAR 包含
 `armeabi-v7a` / `x86`（API 17）和 `arm64-v8a` / `x86_64`（API 21）原生库，覆盖 ARM 真机及 ARM64、x86、x86_64 模拟器。
 Media3 Demo 需要 API 24，旧系统需要匹配的播放器。
 
@@ -32,7 +32,7 @@ dependencyResolutionManagement {
 }
 
 dependencies {
-    implementation("io.meshstream:meshstream-android-sdk:1.0.9")
+    implementation("io.meshstream:meshstream-android-sdk:1.0.10")
 }
 ```
 

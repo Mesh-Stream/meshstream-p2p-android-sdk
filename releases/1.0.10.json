@@ -1,0 +1,44 @@
+{
+  "name": "MeshStream Android SDK",
+  "version": "1.0.10",
+  "mavenRepository": "https://sdk.meshstream.net/maven",
+  "coordinate": "io.meshstream:meshstream-android-sdk:1.0.10",
+  "artifact": "meshstream-android-sdk-1.0.10.aar",
+  "artifactUrl": "https://sdk.meshstream.net/maven/io/meshstream/meshstream-android-sdk/1.0.10/meshstream-android-sdk-1.0.10.aar",
+  "sha256": "77a2ae287168c9e1eec858a7d51f7a253d6184ce0d9b91edb459d47e6d467614",
+  "sizeBytes": 10086258,
+  "abi": [
+    "armeabi-v7a",
+    "arm64-v8a",
+    "x86",
+    "x86_64"
+  ],
+  "minimumSdk": 17,
+  "abiMinimumSdk": {
+    "armeabi-v7a": 17,
+    "arm64-v8a": 21,
+    "x86": 17,
+    "x86_64": 21
+  },
+  "nativeCoreVersion": "1.0.10",
+  "sourceRevision": "8f14b04d66592bc2150ca3f819cea325e20cedf7",
+  "builtAt": "2026-11-07",
+  "toolchain": {
+    "rust": "1.99.1",
+    "cargoNdk": "4.1.2",
+    "jdk": "17.0.21",
+    "gradle": "8.10.2",
+    "androidSdk": 35,
+    "buildTools": "34.0.0",
+    "cmake": "3.22.1",
+    "arm32X86Ndk": "23.2.8568313",
+    "arm64X86_64Ndk": "27.2.12479018"
+  },
+  "validation": {
+    "build": "passed",
+    "unitTests": "passed",
+    "elf16k": "passed",
+    "publicMaven": "passed",
+    "device": "pending"
+  }
+}

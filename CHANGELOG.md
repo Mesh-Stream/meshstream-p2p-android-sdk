@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.10 - 2026-11-07
+
+- Publishes the universal Android release built from native SDK 1.0.10, including the Android JNI configuration refresh and the `bootstrap_refresh_at` initialization fix.
+- Keeps ARM32/x86 API 17+ and ARM64/x86_64 API 21+ support with 16 KB aligned 64-bit libraries.
+- Updates the Media3 example and exact Maven coordinates to 1.0.10.
+
 ## 1.0.9 - 2026-11-01
 
 - Adds x86 (API 17+) and x86_64 (API 21+) to the universal AAR, alongside armeabi-v7a and arm64-v8a.

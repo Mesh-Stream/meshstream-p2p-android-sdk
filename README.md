@@ -17,11 +17,11 @@ tracker, token, or service endpoint is supplied by application code.
 
 ## Release
 
-The current release is **1.0.9**.
+The current release is **1.0.10**.
 
 | Item | Value |
 | --- | --- |
-| Maven coordinate | `io.meshstream:meshstream-android-sdk:1.0.9` |
+| Maven coordinate | `io.meshstream:meshstream-android-sdk:1.0.10` |
 | Delivery | MeshStream Maven repository |
 | Native ABI in this release | `armeabi-v7a`, `arm64-v8a`, `x86`, and `x86_64` (universal AAR) |
 | Native build targets | ARM32/x86: Android 4.2 (API 17)+; ARM64/x86_64: Android 5.0 (API 21)+ |
@@ -51,7 +51,7 @@ Then add the SDK and the required player modules:
 
 ```kotlin
 dependencies {
-    implementation("io.meshstream:meshstream-android-sdk:1.0.9")
+    implementation("io.meshstream:meshstream-android-sdk:1.0.10")
     implementation("androidx.media3:media3-exoplayer:1.5.1")
     implementation("androidx.media3:media3-exoplayer-hls:1.5.1")
 }
@@ -152,10 +152,10 @@ repository and contains no local SDK binary.
 ## Release verification
 
 The metadata for each public release is stored under [`releases/`](releases).
-For 1.0.9, the published artifact SHA-256 is:
+For 1.0.10, the published artifact SHA-256 is:
 
 ```text
-05fe7f9e588cc893e61a34e6e6be410cfb06b47a8e0c692b78e7be2c85d60a43
+77a2ae287168c9e1eec858a7d51f7a253d6184ce0d9b91edb459d47e6d467614
 ```
 
 The public Maven endpoint for this release is `https://sdk.meshstream.net/maven`.
