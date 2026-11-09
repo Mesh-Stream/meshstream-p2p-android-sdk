@@ -1,17 +1,17 @@
-# MeshStream Android SDK
+# MeshStream P2P Android SDK
 
-[English](README.md)
+[English](README.md) · [官网](https://meshstream.net/zh/) · [接入文档](https://meshstream.net/zh/docs/sdk/android-setup/) · [在线 Demo](https://demo.meshstream.net/)
 
-MeshStream Android SDK 为 HLS 和 DASH 提供与 CDN 兼容的播放地址，并在可用时启用
-P2P 分发。应用继续使用自己的播放器；SDK 只负责播放会话、服务配置和加速处理。
+MeshStream Android SDK 为 Kotlin / Java 应用提供 P2P 视频与音频分发，可接入 Media3、ExoPlayer 或其他支持 URL 的播放器。通过本地播放地址接入 HLS、MPEG-DASH 和符合 HTTP Range 要求的 MP4/MP3 请求；Peer 不可用时回退到 HTTP/CDN。
 
-## MeshStream SDKs
+## 产品能力
 
-- [在线 Demo](https://demo.meshstream.net/)：查看已部署的 Web 播放和 P2P 分发效果。
-- [Web Demo](https://github.com/Mesh-Stream/meshstream-p2p-web-sdk)：使用 npm 发布的 Web SDK。
-- [Android SDK](https://github.com/Mesh-Stream/meshstream-p2p-android-sdk)：适用于 Media3 / ExoPlayer。
-- [Apple SDK](https://github.com/Mesh-Stream/meshstream-p2p-ios-sdk)：适用于 iOS 和 macOS。
-- [Windows SDK](https://github.com/Mesh-Stream/meshstream-p2p-Windows-sdk)：适用于 C/C++ 桌面应用。
+- 支持 HLS、MPEG-DASH、HTTP Range MP4/MP3 及源站/CDN 回退。
+- 提供 Kotlin / Java API 与 Media3 / ExoPlayer 接入示例。
+- 提供会话预加载、Peer 事件、流量统计与诊断接口。
+- 通过 Maven 安装，原生库覆盖 armeabi-v7a、arm64-v8a、x86、x86_64。
+
+媒体解码与格式兼容性取决于所选播放器和平台；P2P 可用性取决于网络条件及持有相同内容的 Peer。
 
 ## 当前发布
 
@@ -76,3 +76,12 @@ player.play()
 [`releases/`](releases)。正式 Maven 地址为
 `https://sdk.meshstream.net/maven`；以精确版本及 SHA-256 校验发行包，历史对象不覆盖。
 接入、ABI、授权或分发问题请联系 support@meshstream.net。
+
+## 其他 MeshStream SDK
+
+- [Web](https://github.com/Mesh-Stream/meshstream-p2p-web-sdk): JavaScript / TypeScript、WebRTC 与浏览器播放器.
+- [iOS / macOS](https://github.com/Mesh-Stream/meshstream-p2p-ios-sdk): MeshStreamKit、Swift / Objective-C、SPM 与 CocoaPods.
+- [Windows](https://github.com/Mesh-Stream/meshstream-p2p-Windows-sdk): 面向 Windows 10 / 11 x64 的 C / C++ 接口.
+- [uni-app](https://github.com/Mesh-Stream/meshstream-p2p-uniapp-sdk): 面向 iOS / Android App 的 UTS / JavaScript 插件.
+- [Flutter](https://github.com/Mesh-Stream/meshstream-p2p-flutter-sdk): 面向 iOS / Android 的 Dart 插件及 video_player 示例.
+- [React Native](https://github.com/Mesh-Stream/meshstream-p2p-react-native-sdk): 面向 iOS / Android 的 TypeScript API 及 react-native-video 示例.
