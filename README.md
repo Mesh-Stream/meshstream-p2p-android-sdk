@@ -4,6 +4,17 @@
 
 MeshStream Android SDK adds P2P video and audio delivery to Kotlin / Java apps using Media3, ExoPlayer or another URL-capable player. It supports HLS, MPEG-DASH and eligible HTTP Range MP4/MP3 requests through a local playback URL, with HTTP/CDN fallback when peers are unavailable.
 
+## How it works
+
+Create a session from your media URL, then give its `playbackUrl` to your existing player:
+
+```text
+App → SDK playback session → Local playback URL → Player
+                              └─ SDK fetches from peers or origin/CDN
+```
+
+Your player handles decoding, rendering and playback controls. The SDK handles media delivery, caching and P2P scheduling. Configuration and P2P preparation run in the background; playback need not wait for a peer connection. Stop using the old playback URL before closing its session when leaving the page or switching content.
+
 ## Features
 
 - HLS, MPEG-DASH and HTTP Range MP4/MP3 delivery with origin/CDN fallback.
@@ -11,7 +22,13 @@ MeshStream Android SDK adds P2P video and audio delivery to Kotlin / Java apps u
 - Session preload, peer events, traffic counters and diagnostics.
 - Maven distribution with armeabi-v7a, arm64-v8a, x86 and x86_64 native libraries.
 
-Media decoding and format support depend on your chosen player and platform. P2P availability depends on network conditions and peers with matching content.
+## Before you start
+
+- Create an application and a platform-specific SDK Key in the [MeshStream console](https://console.meshstream.net/). If application identity validation is enabled, register the package name or Bundle ID of the app you run.
+- Have a playable HLS `.m3u8`, DASH `.mpd`, or HTTP Range-capable MP4 / MP3 URL. Prefer HTTPS.
+- Choose a player that supports your source format. The SDK adds delivery capabilities, not codecs.
+
+To try it first, jump to [Run the demo](#run-the-demo). The online demo linked above is a Web experience; run this repository's example for this platform.
 
 ## Release
 
@@ -45,7 +62,7 @@ dependencyResolutionManagement {
 }
 ```
 
-Then add the SDK and the required player modules:
+In the app module's `build.gradle.kts`, add the SDK and required player modules (HLS with Media3 in this example):
 
 ```kotlin
 dependencies {
@@ -54,9 +71,6 @@ dependencies {
     implementation("androidx.media3:media3-exoplayer-hls:1.5.1")
 }
 ```
-
-Do not download or copy the AAR into your application. The Maven coordinate is
-the supported distribution path for this release.
 
 ## Local playback network policy
 
@@ -81,7 +95,15 @@ Create a client with the SDK key issued in the MeshStream console, create a
 playback session for each playback item, then pass the session URL to your
 player.
 
+`player` is an existing Media3 `ExoPlayer`. Retain the client and session in the playback owner.
+
 ```kotlin
+import androidx.media3.common.MediaItem
+import io.meshstream.sdk.P2pConfig
+import io.meshstream.sdk.P2pSdk
+import io.meshstream.sdk.P2pLogLevel
+
+val originUrl = "https://cdn.example.com/video/master.m3u8"
 val client = P2pSdk.create(
     applicationContext,
     P2pConfig(
@@ -106,9 +128,27 @@ multiple sessions concurrently, for example for an active player and a
 preloaded player.
 
 ```kotlin
+player.release()
 session.close()
 P2pSdk.shutdown() // Application-wide shutdown when all clients are finished.
 ```
+
+## Run the demo
+
+```bash
+git clone https://github.com/Mesh-Stream/meshstream-p2p-android-sdk.git
+cd meshstream-p2p-android-sdk/Examples/Media3Demo
+```
+
+Open this directory in Android Studio. Replace `SDK_KEY` in [`MainActivity.kt`](Examples/Media3Demo/app/src/main/java/io/meshstream/customerminimal/MainActivity.kt) with your Android Key. If package validation is enabled, register the example's actual applicationId. Select an API 24+ device or emulator and click Run.
+
+With JDK and Android SDK already configured, you can also install from a terminal:
+
+```bash
+./gradlew :app:installDebug
+```
+
+Launch the installed app, enter an HLS URL and click **Play**. The UI shows video, peers, P2P download/upload, HTTP download and offload ratio. This example configures HLS explicitly; DASH needs its matching Media3 module and media type.
 
 ## Playback formats
 
@@ -140,13 +180,6 @@ client.addEventListener(object : P2pEventListener {
 })
 ```
 
-## Media3 example
-
-[`Examples/Media3Demo`](Examples/Media3Demo) is a standalone Android Studio
-project. Set `SDK_KEY` in `MainActivity.kt`, open that directory in Android
-Studio, and run it on a supported device or emulator. It resolves the SDK from the public Maven
-repository and contains no local SDK binary.
-
 ## Release verification
 
 The metadata for each public release is stored under [`releases/`](releases).
@@ -160,10 +193,17 @@ The public Maven endpoint for this release is `https://sdk.meshstream.net/maven`
 Release verification uses the supported public domain and exact Maven version.
 Historical Maven artifacts remain unchanged.
 
-## Support
+## Verify P2P delivery
 
-For distribution, ABI, licensing, or integration questions, contact
-support@meshstream.net.
+1. Play the same content in two devices or independently running instances, each with a valid Key. Use the same rendition and nearby playback positions. For rotating signed URLs, use the same stable content ID for the same content, and different IDs for different content.
+2. Watch peers and traffic in the demo. A nonzero peer count means a connection exists; **increasing P2P download or upload bytes** confirms media sharing.
+3. Close the other instance and check that HTTP/CDN playback continues. Also check seeking, switching content and cleanup when leaving playback.
+
+HTTP/CDN delivery is normal with one viewer or no shareable segments. Discovery and sharing also depend on account configuration, network connectivity and the content cached by both viewers.
+
+## More examples and support
+
+See [advanced usage](https://meshstream.net/docs/sdk/android-advanced/) for preload, live/VOD scheduling, player feedback, multiple sessions and diagnostics. See [CHANGELOG](CHANGELOG.md) for updates. Contact support@meshstream.net with the SDK version, OS, player and redacted logs.
 
 ## Other MeshStream SDKs
 
