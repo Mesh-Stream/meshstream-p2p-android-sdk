@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.1 - 2026-11-13
+
+- Publishes the universal Android release built from P2PCDN native SDK 1.1.1 (armeabi-v7a/x86 API 17+, arm64-v8a/x86_64 API 21+).
+- Keeps CDN fallback and transfer statistics available while bootstrap recovers.
+- Updates the Media3 example and Maven coordinates to 1.1.1.
+
 ## 1.1.0 — 2026-11-12
 
 - Uses the Tracker-provided announce interval and resets discovery timing after reconnect.

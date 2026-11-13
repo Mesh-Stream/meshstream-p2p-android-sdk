@@ -32,11 +32,11 @@ To try it first, jump to [Run the demo](#run-the-demo). The online demo linked a
 
 ## Release
 
-The current release is **1.1.0**.
+The current release is **1.1.1**.
 
 | Item | Value |
 | --- | --- |
-| Maven coordinate | `io.meshstream:meshstream-android-sdk:1.1.0` |
+| Maven coordinate | `io.meshstream:meshstream-android-sdk:1.1.1` |
 | Delivery | MeshStream Maven repository |
 | Native ABI in this release | `armeabi-v7a`, `arm64-v8a`, `x86`, and `x86_64` (universal AAR) |
 | Native build targets | ARM32/x86: Android 4.2 (API 17)+; ARM64/x86_64: Android 5.0 (API 21)+ |
@@ -66,7 +66,7 @@ In the app module's `build.gradle.kts`, add the SDK and required player modules 
 
 ```kotlin
 dependencies {
-    implementation("io.meshstream:meshstream-android-sdk:1.1.0")
+    implementation("io.meshstream:meshstream-android-sdk:1.1.1")
     implementation("androidx.media3:media3-exoplayer:1.5.1")
     implementation("androidx.media3:media3-exoplayer-hls:1.5.1")
 }
@@ -183,10 +183,10 @@ client.addEventListener(object : P2pEventListener {
 ## Release verification
 
 The metadata for each public release is stored under [`releases/`](releases).
-For 1.1.0, the published artifact SHA-256 is:
+For 1.1.1, the published artifact SHA-256 is:
 
 ```text
-9e704f2bceba56c8ded7d47335ab11e972a5b39d5beb8f210fbe834f24750da2
+401163248e90d580ad659d330016172c0871cfdcda7e7633f9b2c6f3d3394ca8
 ```
 
 The public Maven endpoint for this release is `https://sdk.meshstream.net/maven`.
